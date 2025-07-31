@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher or Lower - Celebrity Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Homepage Screen -->
+        <div id="homepage" class="screen active">
+            <div class="homepage-content">
+                <div class="particles"></div>
+                <h1 class="title">
+                    <span class="title-main">Higher or Lower</span>
+                    <span class="title-sub">Celebrity Edition</span>
+                </h1>
+                <p class="subtitle">Guess which celebrity has more followers!</p>
+                <button id="startGame" class="btn btn--primary btn--lg start-btn">
+                    <span>Start Game</span>
+                    <div class="btn-glow"></div>
+                </button>
+                <div class="high-score-display">
+                    <span>High Score: <span id="highScoreDisplay">0</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gamescreen" class="screen">
+            <div class="game-header">
+                <div class="score-container">
+                    <span class="score-label">Score</span>
+                    <span id="currentScore" class="score-value">0</span>
+                </div>
+                <div class="high-score-container">
+                    <span class="high-score-label">Best</span>
+                    <span id="gameHighScore" class="high-score-value">0</span>
+                </div>
+            </div>
+
+            <div class="game-content">
+                <div class="celebrity-container">
+                    <!-- Left Celebrity Card -->
+                    <div class="celebrity-card left-card" id="leftCard">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <h3 class="celebrity-name" id="leftName"></h3>
+                            <p class="celebrity-description" id="leftDescription"></p>
+                            <div class="celebrity-info">
+                                <span class="country" id="leftCountry"></span>
+                                <div class="follower-count" id="leftFollowers">
+                                    <span class="count-number"></span>
+                                    <span class="count-label">followers</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-overlay"></div>
+                    </div>
+
+                    <!-- VS Separator -->
+                    <div class="vs-container">
+                        <div class="vs-circle">
+                            <span class="vs-text">VS</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Celebrity Card -->
+                    <div class="celebrity-card right-card clickable" id="rightCard">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <h3 class="celebrity-name" id="rightName"></h3>
+                            <p class="celebrity-description" id="rightDescription"></p>
+                            <div class="celebrity-info">
+                                <span class="country" id="rightCountry"></span>
+                                <div class="follower-count question-mark">
+                                    <span class="count-number">?</span>
+                                    <span class="count-label">followers</span>
+                                </div>
+                            </div>
+                            <div class="guess-overlay">
+                                <div class="guess-text">Higher or Lower?</div>
+                                <div class="guess-buttons">
+                                    <button class="guess-btn higher-btn" data-guess="higher">
+                                        <span>📈 Higher</span>
+                                    </button>
+                                    <button class="guess-btn lower-btn" data-guess="lower">
+                                        <span>📉 Lower</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="gameOverModal" class="modal hidden">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <div class="game-over-header">
+                    <h2 class="game-over-title">Game Over!</h2>
+                    <div class="meme-container">
+                        <img id="memeImage" class="meme-image" alt="Game over meme" />
+                    </div>
+                </div>
+                
+                <div class="game-over-stats">
+                    <div class="final-score">
+                        <span class="score-label">Your Score</span>
+                        <span id="finalScore" class="score-number">0</span>
+                    </div>
+                    <div class="high-score-info">
+                        <span id="highScoreMessage" class="high-score-msg"></span>
+                    </div>
+                </div>
+
+                <div class="wrong-answer-info" id="wrongAnswerInfo">
+                    <h4>The Answer Was:</h4>
+                    <div class="answer-comparison">
+                        <div class="answer-card">
+                            <span class="answer-name" id="answerName1"></span>
+                            <span class="answer-followers" id="answerFollowers1"></span>
+                        </div>
+                        <div class="vs-small">vs</div>
+                        <div class="answer-card">
+                            <span class="answer-name" id="answerName2"></span>
+                            <span class="answer-followers" id="answerFollowers2"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-over-actions">
+                    <button id="playAgainBtn" class="btn btn--primary btn--lg">
+                        <span>Play Again</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                    <button id="backToHomeBtn" class="btn btn--outline">Back to Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
